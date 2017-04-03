@@ -3,6 +3,7 @@
 Created by Harris Christiansen on 10/02/16.
 """
 from django.db import models
+from django.urls import reverse
 
 from CompaniesApp.models import Company
 from CSCapstoneApp.models import SkillTag
@@ -18,4 +19,7 @@ class Project(models.Model):
 
 	def __str__(self):
 		return self.name
+
+	def get_absolute_url(self):
+		return reverse('project', args=[str(self.id)])
 
